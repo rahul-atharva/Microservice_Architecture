@@ -1,0 +1,15 @@
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\Core.Api.deps.json
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\Core.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\ref\Core.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\Core.Api.pdb
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\DataAccess.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\bin\Debug\net6.0\DataAccess.Api.pdb
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.csproj.AssemblyReference.cache
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.AssemblyInfoInputs.cache
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.AssemblyInfo.cs
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.csproj.CoreCompileInputs.cache
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.csproj.CopyComplete
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\ref\Core.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\Core.Api\obj\Debug\net6.0\Core.Api.pdb

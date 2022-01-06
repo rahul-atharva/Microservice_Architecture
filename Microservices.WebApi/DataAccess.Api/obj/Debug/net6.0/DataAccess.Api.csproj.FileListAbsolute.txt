@@ -1,0 +1,11 @@
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\bin\Debug\net6.0\DataAccess.Api.deps.json
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\bin\Debug\net6.0\DataAccess.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\bin\Debug\net6.0\ref\DataAccess.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\bin\Debug\net6.0\DataAccess.Api.pdb
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.AssemblyInfoInputs.cache
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.AssemblyInfo.cs
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.csproj.CoreCompileInputs.cache
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\ref\DataAccess.Api.dll
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.pdb
