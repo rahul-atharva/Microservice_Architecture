@@ -7,16 +7,16 @@ using AutoMapper;
 
 namespace Register.Microservice.Data.EFCore
 {
-    public class EfCoreUserRepository : EfCoreRepository<User, UserAPIContext>
+    public class EfCoreUserRepository
     {
+        private IConfiguration _config;
         private UserAPIContext _context;
-        private IJwtUtils _jwtUtils;
         private readonly IMapper _mapper;
-        public EfCoreUserRepository(UserAPIContext context, IJwtUtils jwtUtils, IMapper mapper) : base(context)
+        public EfCoreUserRepository(UserAPIContext context, IMapper mapper, IConfiguration config)
         {
             _context = context;
-            _jwtUtils = jwtUtils;
             _mapper = mapper;
+            _config = config;
         }
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
@@ -27,9 +27,11 @@ namespace Register.Microservice.Data.EFCore
             if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
                 throw new AppException("Username or password is incorrect");
 
+            JWTHandler jWTHandler = new JWTHandler(_config);
+
             // authentication successful
             var response = _mapper.Map<AuthenticateResponse>(user);
-            response.JwtToken = _jwtUtils.GenerateToken(user);
+            response.JwtToken = jWTHandler.GenerateJSONWebToken(user);
             return response;
         }
 
@@ -53,7 +55,7 @@ namespace Register.Microservice.Data.EFCore
 
         public int TokenIsValid(string token)
         {
-            var userId = _jwtUtils.ValidateToken(token);
+            var userId = 0;// _jwtUtils.ValidateToken(token);
             return userId != null ? (int)userId : 0;
         }
 

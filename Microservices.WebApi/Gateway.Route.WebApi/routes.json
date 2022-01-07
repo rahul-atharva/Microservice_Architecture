@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      // Entry Api end points to identify which service/API call
+      "endpoint": "/users",
+      // Call to Inner service/API end points to get/put/post
+      "destination": {
+        "uri": "http://localhost:44390/api/users/", // console mode
+        "requiresAuthentication": "false"
+      }
+    },
+    {
+      // Entry Api end points to identify which service/API call
+      "endpoint": "/Register",
+      // Call to Inner service/API end points to get/put/post
+      "destination": {
+        "uri": "http://localhost:44340/api/Register/", // console mode
+        "requiresAuthentication": "true"
+      }
+    }
+  ]
+}

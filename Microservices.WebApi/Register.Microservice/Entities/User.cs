@@ -1,10 +1,9 @@
-﻿using DataAccess.Api;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Register.Microservice.Entities
 {
-    public class User : IEntity
+    public class User 
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

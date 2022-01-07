@@ -9,3 +9,4 @@ D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAc
 D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.dll
 D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\ref\DataAccess.Api.dll
 D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.pdb
+D:\Rahul_Workplace\Atharva\Microservice_Architecture\Microservices.WebApi\DataAccess.Api\obj\Debug\net6.0\DataAccess.Api.csproj.AssemblyReference.cache

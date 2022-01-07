@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2ff513e1-2a07-4d64-954c-9dcf81b39ba7": {
+      "ProjectGuid": "2ff513e1-2a07-4d64-954c-9dcf81b39ba7",
+      "DisplayName": "Register.Microservice",
+      "ColorIndex": 0
+    },
+    "0591a5e3-5974-4242-97ed-e238d518c47c": {
+      "ProjectGuid": "0591a5e3-5974-4242-97ed-e238d518c47c",
+      "DisplayName": "DataAccess.Api",
+      "ColorIndex": 1
+    },
+    "53ce58b5-e3bd-4b8a-a4ce-f2b342373af1": {
+      "ProjectGuid": "53ce58b5-e3bd-4b8a-a4ce-f2b342373af1",
+      "DisplayName": "Core.Api",
+      "ColorIndex": 2
+    },
+    "1965ca06-f3e4-45e2-b963-cf41ac1a0dfa": {
+      "ProjectGuid": "1965ca06-f3e4-45e2-b963-cf41ac1a0dfa",
+      "DisplayName": "Gateway.WebApi",
+      "ColorIndex": 3
+    },
+    "a00c2bb9-fd92-46ad-baff-eafac585ac0e": {
+      "ProjectGuid": "a00c2bb9-fd92-46ad-baff-eafac585ac0e",
+      "DisplayName": "Register.Microservice",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "9dfab151-8f00-496f-9bac-7fab1ae3f6af": {
+      "ProjectGuid": "9dfab151-8f00-496f-9bac-7fab1ae3f6af",
+      "DisplayName": "Gateway.Route.WebApi",
+      "ColorIndex": 5
+    },
+    "7251515c-13b2-43e2-8ead-bcf81ef1068a": {
+      "ProjectGuid": "7251515c-13b2-43e2-8ead-bcf81ef1068a",
+      "DisplayName": "Gateway.Ocelot.WebApi",
+      "ColorIndex": 6
+    },
+    "85c03afe-11a1-4028-8247-0677bb74de12": {
+      "ProjectGuid": "85c03afe-11a1-4028-8247-0677bb74de12",
+      "DisplayName": "Users.Microservice",
+      "ColorIndex": 7
+    },
+    "64c2d078-fb3b-4b96-ac48-518d744134c2": {
+      "ProjectGuid": "64c2d078-fb3b-4b96-ac48-518d744134c2",
+      "DisplayName": "Users.Microservice",
+      "ColorIndex": 8
+    }
+  },
+  "NextColorIndex": 9
+}

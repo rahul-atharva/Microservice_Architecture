@@ -1,19 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Api.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Register.Microservice.Data;
 using Register.Microservice.Data.EFCore;
-using Register.Microservice.Helpers;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Register.Microservice
 {
     public class Startup
     {
-        private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _configuration;
+        private IHostingEnvironment HostingEnvironment { get; set; }
 
-        public Startup(IWebHostEnvironment env, IConfiguration configuration)
+        public Startup(IHostingEnvironment hostingEnvironment, IConfiguration configuration)
         {
-            _env = env;
+            HostingEnvironment = hostingEnvironment;
             _configuration = configuration;
         }
 
@@ -27,41 +28,20 @@ namespace Register.Microservice
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
-
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Register API", Version = "v1" });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "JWT Authorization header using the Bearer scheme.",
-                    Name = "x-auth-token",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "bearer"
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-            {
-                new OpenApiSecurityScheme
-                {
-                    Reference = new OpenApiReference
-                    {
-                        Type = ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
-                }, new List<string>()
-            }
-        });
             });
 
-            // configure strongly typed settings objects
-            services.Configure<AppSettings>(_configuration.GetSection("AppSettings"));
+            // File should be ENVironment Specific
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                                    .AddJsonFile("appsettings.json") // This file will be overridden by below next line 
+                                    .AddJsonFile($"appsettings.{HostingEnvironment.EnvironmentName}.json", optional: true); // Read ENV value for appsetting
+
+            services.AddJwtAuthentication(HostingEnvironment, builder); // Extension for JWT
 
             services.AddDbContext<UserAPIContext>(options =>
-                   options.UseSqlServer(_configuration.GetConnectionString("WebApiDatabase")));
+                   options.UseSqlServer(_configuration.GetConnectionString("UsersApiDatabase")));
 
             // configure DI for application services
-            services.AddScoped<IJwtUtils, JwtUtils>();
             services.AddScoped<EfCoreUserRepository>();
             //services.AddScoped<IUserService, UserService>();
         }
