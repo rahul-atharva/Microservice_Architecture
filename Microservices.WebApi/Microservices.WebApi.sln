@@ -11,11 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Register.Microservice", "Register.Microservice\Register.Microservice.csproj", "{A00C2BB9-FD92-46AD-BAFF-EAFAC585AC0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Route.WebApi", "Gateway.Route.WebApi\Gateway.Route.WebApi.csproj", "{9DFAB151-8F00-496F-9BAC-7FAB1AE3F6AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Route.WebApi", "Gateway.Route.WebApi\Gateway.Route.WebApi.csproj", "{9DFAB151-8F00-496F-9BAC-7FAB1AE3F6AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Ocelot.WebApi", "Gateway.Ocelot.WebApi\Gateway.Ocelot.WebApi.csproj", "{7251515C-13B2-43E2-8EAD-BCF81EF1068A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Ocelot.WebApi", "Gateway.Ocelot.WebApi\Gateway.Ocelot.WebApi.csproj", "{7251515C-13B2-43E2-8EAD-BCF81EF1068A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.Microservice", "Users.Microservice\Users.Microservice.csproj", "{64C2D078-FB3B-4B96-AC48-518D744134C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Users.Microservice", "Users.Microservice\Users.Microservice.csproj", "{64C2D078-FB3B-4B96-AC48-518D744134C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture.Example", "Architecture.Example", "{67062E4A-574E-40A5-8736-37EDD0A4847C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

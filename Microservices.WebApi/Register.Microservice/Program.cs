@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
 
 namespace Register.Microservice
 {
@@ -13,14 +6,17 @@ namespace Register.Microservice
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            BuildWebHost(args).Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(config =>
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    config.AddJsonFile("appsettings.json");
+                    config.AddEnvironmentVariables();
+                })
+                .UseStartup<Startup>()
+                .Build();
     }
 }

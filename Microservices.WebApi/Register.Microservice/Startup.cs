@@ -1,8 +1,8 @@
-﻿using Core.Api.Authorization;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Register.Microservice.Data;
 using Register.Microservice.Data.EFCore;
+using Register.Microservice.Helpers;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Register.Microservice
@@ -22,7 +22,8 @@ namespace Register.Microservice
         public void ConfigureServices(IServiceCollection services)
         {
 
-
+            services.AddOptions();
+            services.Configure<Audience>(_configuration.GetSection("Audience"));
             services.AddCors();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -36,14 +37,11 @@ namespace Register.Microservice
                                     .AddJsonFile("appsettings.json") // This file will be overridden by below next line 
                                     .AddJsonFile($"appsettings.{HostingEnvironment.EnvironmentName}.json", optional: true); // Read ENV value for appsetting
 
-            services.AddJwtAuthentication(HostingEnvironment, builder); // Extension for JWT
-
             services.AddDbContext<UserAPIContext>(options =>
                    options.UseSqlServer(_configuration.GetConnectionString("UsersApiDatabase")));
 
             // configure DI for application services
             services.AddScoped<EfCoreUserRepository>();
-            //services.AddScoped<IUserService, UserService>();
         }
 
         // configure the HTTP request pipeline
@@ -53,7 +51,6 @@ namespace Register.Microservice
             // generated swagger json and swagger ui middleware
             app.UseSwagger();
             app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "Register API"));
-
 
             app.UseRouting();
 
@@ -72,6 +69,7 @@ namespace Register.Microservice
             //app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(x => x.MapControllers());
+
         }
     }
 }

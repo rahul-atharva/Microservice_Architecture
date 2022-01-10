@@ -1,41 +1,49 @@
 {
 
   "Routes": [
-    //Users 
+    //Users
     {
       "DownstreamPathTemplate": "/api/users",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44390
+          "Port": 27493
         }
       ],
       "UpstreamPathTemplate": "/gateway/users",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "WebAPIKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44390
+          "Port": 27493
         }
       ],
       "DownstreamPathTemplate": "/api/users/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamHttpMethod": [ "GET", "DELETE" ],
-      "UpstreamPathTemplate": "/gateway/users/{id}"
+      "UpstreamPathTemplate": "/gateway/users/{id}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "WebAPIKey",
+        "AllowedScopes": []
+      }
     },
     //Register
     {
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44340
+          "Port": 27492
         }
       ],
       "DownstreamPathTemplate": "/api/register/authenticate",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/gateway/register/authenticate"
     },
@@ -43,11 +51,11 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44340
+          "Port": 27492
         }
       ],
       "DownstreamPathTemplate": "/api/register",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/gateway/register"
     },
@@ -55,14 +63,18 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44340
+          "Port": 27492
         }
       ],
       "DownstreamPathTemplate": "/api/register/tokenIsValid",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "UpstreamHttpMethod": [ "GET" ],
       "UpstreamPathTemplate": "/gateway/register/tokenIsValid"
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "AdministrationPath": "/administration"
+  }
 
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Register.Microservice.Data.EFCore;
+using Register.Microservice.Helpers;
 using Register.Microservice.Models;
 
 namespace Register.Microservice.Controllers
@@ -10,16 +12,18 @@ namespace Register.Microservice.Controllers
     [Route("api/[controller]")]
     public class RegisterController : ControllerBase
     {
+        private IOptions<Audience> _settings;
         private EfCoreUserRepository _repository;
-        public RegisterController(EfCoreUserRepository repository)
+        public RegisterController(EfCoreUserRepository repository, IOptions<Audience> settings)
         {
             _repository = repository;
+            this._settings = settings;
         }
 
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _repository.Authenticate(model);
+            var response = _repository.Authenticate(model, _settings);
             return Ok(response);
         }
 

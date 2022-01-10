@@ -21,13 +21,12 @@ namespace Users.Microservice
         // add services to the DI container
         public void ConfigureServices(IServiceCollection services)
         {
-
-
+            services.AddOptions();
             services.AddCors();
             services.AddControllers();
+            services.AddAuthorization();
             services.AddSwaggerGen(c =>
             {
-
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Users API", Version = "v1" });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -54,45 +53,35 @@ namespace Users.Microservice
         });
             });
 
-            // File should be ENVironment Specific
-            IConfigurationBuilder builder = new ConfigurationBuilder()
-                                    .AddJsonFile("appsettings.json") // This file will be overridden by below next line 
-                                    .AddJsonFile($"appsettings.{HostingEnvironment.EnvironmentName}.json", optional: true); // Read ENV value for appsetting
-
-            services.AddJwtAuthentication(HostingEnvironment, builder); // Extension for JWT
+            services.AddJwtAuthentication(_configuration); // Extension for JWT
 
             services.AddDbContext<UserAPIContext>(options =>
                    options.UseSqlServer(_configuration.GetConnectionString("UsersApiDatabase")));
 
             // configure DI for application services
             services.AddScoped<EfCoreUserRepository>();
-            //services.AddScoped<IUserService, UserService>();
+
+            services.AddMvc();
         }
 
         // configure the HTTP request pipeline
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
 
             // generated swagger json and swagger ui middleware
             app.UseSwagger();
             app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "Users API"));
 
-
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseMvc();
 
             // global cors policy
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
-
-            // global error handler
-            //app.UseMiddleware<ErrorHandlerMiddleware>();
-
-            // custom jwt auth middleware
-            //app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(x => x.MapControllers());
         }

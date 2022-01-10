@@ -7,18 +7,18 @@ using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace Users.Microservice.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : MyMDBController<User, EfCoreUserRepository>
     {
         private EfCoreUserRepository _repository;
-       
+
 
         public UsersController(EfCoreUserRepository repository) : base(repository)
         {
             _repository = repository;
-           
+
         }
 
         [HttpPut("{id}")]

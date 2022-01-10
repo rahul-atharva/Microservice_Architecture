@@ -4,6 +4,7 @@ using Register.Microservice.Entities;
 using Register.Microservice.Models;
 using Register.Microservice.Helpers;
 using AutoMapper;
+using Microsoft.Extensions.Options;
 
 namespace Register.Microservice.Data.EFCore
 {
@@ -19,7 +20,7 @@ namespace Register.Microservice.Data.EFCore
             _config = config;
         }
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        public AuthenticateResponse Authenticate(AuthenticateRequest model, IOptions<Audience> _settings)
         {
             var user = _context.Users.SingleOrDefault(x => x.Username == model.Username);
 
@@ -27,11 +28,14 @@ namespace Register.Microservice.Data.EFCore
             if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
                 throw new AppException("Username or password is incorrect");
 
-            JWTHandler jWTHandler = new JWTHandler(_config);
+            JWTHandler jWTHandler = new JWTHandler();
 
             // authentication successful
             var response = _mapper.Map<AuthenticateResponse>(user);
-            response.JwtToken = jWTHandler.GenerateJSONWebToken(user);
+            var JWTResponse  = jWTHandler.GenerateJSONWebToken(user, _settings);
+            response.access_token = JWTResponse.access_token;
+            response.expires_in = JWTResponse.expires_in;
+
             return response;
         }
 

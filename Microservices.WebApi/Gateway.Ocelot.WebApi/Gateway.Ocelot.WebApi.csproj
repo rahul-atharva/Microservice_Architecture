@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
     <PackageReference Include="Ocelot" Version="17.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Api\Core.Api.csproj" />
   </ItemGroup>
 
 </Project>
